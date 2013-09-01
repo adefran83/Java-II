@@ -247,7 +247,7 @@ public class PizzaOrder extends JFrame {
 		JLabel lblPicture = new JLabel("");
 		lblPicture.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPicture.setBounds(5, 17, 320, 117);
-		lblPicture.setIcon(new ImageIcon("/home/adefran/workspace/Unit_1/src/pizza-hut.jpg"));
+		lblPicture.setIcon(new ImageIcon(PizzaOrder.class.getResource("/pizza-hut.jpg")));
 		InfoPanel.add(lblPicture);
 
 		JLabel lblBuyMedium = new JLabel(
