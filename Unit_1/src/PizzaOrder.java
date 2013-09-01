@@ -17,6 +17,10 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.ImageIcon;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import net.miginfocom.swing.MigLayout;
 
 public class PizzaOrder extends JFrame {
 
@@ -242,12 +246,11 @@ public class PizzaOrder extends JFrame {
 				.createTitledBorder("Perfecto Specials"));
 		InfoPanel.setBounds(12, 123, 207, 126);
 		contentPane.add(InfoPanel);
-		InfoPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-
-		JLabel lblBuyMedium = new JLabel(
-				"Buy 2 Medium 3 topping pizza's for only $20!");
-		lblBuyMedium.setIcon(new ImageIcon("/home/adefran/workspace/Unit_1/src/Pizza-Hut-pepperoni-pan-pizza-original.jpg"));
-		InfoPanel.add(lblBuyMedium);
+								InfoPanel.setLayout(new GridLayout(0, 1, 0, 0));
+						
+								JLabel lblBuyMedium = new JLabel(
+										"Buy 2 Medium 3 topping pizza's for only $20!");
+								InfoPanel.add(lblBuyMedium);
 
 		/*
 		 * Summary Panel which holds the totals for the pizza, taxes and then
@@ -260,7 +263,7 @@ public class PizzaOrder extends JFrame {
 		contentPane.add(SummaryPanel);
 		SummaryPanel.setLayout(new GridLayout(0, 2, 0, 0));
 
-		JLabel lblNewLabel = new JLabel("Total:");
+		JLabel lblNewLabel = new JLabel("Cost of Pizza:");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		SummaryPanel.add(lblNewLabel);
 
@@ -274,7 +277,7 @@ public class PizzaOrder extends JFrame {
 		lblTaxesTotal = new JLabel("$0.00");
 		SummaryPanel.add(lblTaxesTotal);
 
-		JLabel lblFinal = new JLabel("Final:");
+		JLabel lblFinal = new JLabel("Total:");
 		lblFinal.setHorizontalAlignment(SwingConstants.RIGHT);
 		SummaryPanel.add(lblFinal);
 
