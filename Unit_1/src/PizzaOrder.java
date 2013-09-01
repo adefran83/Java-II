@@ -16,11 +16,13 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.ImageIcon;
 
 public class PizzaOrder extends JFrame {
 
 	/**
-	 * some global variables, needed for UpdateTotals method, which calculates the finals and the taxes
+	 * some global variables, needed for UpdateTotals method, which calculates
+	 * the finals and the taxes
 	 */
 	private static final long serialVersionUID = -580160874966373514L;
 	private JPanel contentPane;
@@ -56,14 +58,15 @@ public class PizzaOrder extends JFrame {
 	public PizzaOrder() {
 		setTitle("Perfecto Pizza");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 636, 379);
+		setBounds(100, 100, 673, 406);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(0, 2, 0, 0));
 
-		/* 
-		 * Panel that holds the radio buttons, also create radio button group, so that only one may be selected at a time.
+		/*
+		 * Panel that holds the radio buttons, also create radio button group,
+		 * so that only one may be selected at a time.
 		 */
 		JLayeredPane PizzaSize = new JLayeredPane();
 		PizzaSize.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -83,8 +86,7 @@ public class PizzaOrder extends JFrame {
 		});
 		PizzaSize.add(rdbtnSmallPizza);
 
-		rdbtnMediumPizza = new JRadioButton(
-				"Medium ($10.00)");
+		rdbtnMediumPizza = new JRadioButton("Medium ($10.00)");
 		rdbtnMediumPizza.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				if (rdbtnMediumPizza.isSelected()) {
@@ -106,8 +108,7 @@ public class PizzaOrder extends JFrame {
 		});
 		PizzaSize.add(rdbtnLargePizza);
 
-		rdbtnXLargePizza = new JRadioButton(
-				"Extra-Large ($14.00)");
+		rdbtnXLargePizza = new JRadioButton("Extra-Large ($14.00)");
 		rdbtnXLargePizza.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				if (rdbtnXLargePizza.isSelected()) {
@@ -200,7 +201,7 @@ public class PizzaOrder extends JFrame {
 			}
 		});
 		PizzaToppings.add(chckbxOlives);
-		
+
 		JCheckBox chckbxHotPeppers = new JCheckBox("Hot Peppers");
 		chckbxHotPeppers.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
@@ -208,7 +209,7 @@ public class PizzaOrder extends JFrame {
 			}
 		});
 		PizzaToppings.add(chckbxHotPeppers);
-		
+
 		JCheckBox chckbxOnions = new JCheckBox("Onions");
 		chckbxOnions.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
@@ -216,7 +217,7 @@ public class PizzaOrder extends JFrame {
 			}
 		});
 		PizzaToppings.add(chckbxOnions);
-		
+
 		JCheckBox chckbxGreenPeppers = new JCheckBox("Green Peppers");
 		chckbxGreenPeppers.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
@@ -224,7 +225,7 @@ public class PizzaOrder extends JFrame {
 			}
 		});
 		PizzaToppings.add(chckbxGreenPeppers);
-		
+
 		JCheckBox chckbxAnchovies = new JCheckBox("Anchovies");
 		chckbxAnchovies.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
@@ -243,8 +244,14 @@ public class PizzaOrder extends JFrame {
 		contentPane.add(InfoPanel);
 		InfoPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
+		JLabel lblBuyMedium = new JLabel(
+				"Buy 2 Medium 3 topping pizza's for only $20!");
+		lblBuyMedium.setIcon(new ImageIcon("/home/adefran/workspace/Unit_1/src/Pizza-Hut-pepperoni-pan-pizza-original.jpg"));
+		InfoPanel.add(lblBuyMedium);
+
 		/*
-		 * Summary Panel which holds the totals for the pizza, taxes and then combines them for a final total
+		 * Summary Panel which holds the totals for the pizza, taxes and then
+		 * combines them for a final total
 		 */
 		JPanel SummaryPanel = new JPanel();
 		SummaryPanel
@@ -284,24 +291,27 @@ public class PizzaOrder extends JFrame {
 		/*
 		 * check to see which radio button is checked
 		 */
-		if(rdbtnSmallPizza.isSelected()){
+		if (rdbtnSmallPizza.isSelected()) {
 			pizzaTotal = 8;
-		} else if (rdbtnMediumPizza.isSelected()){
+		} else if (rdbtnMediumPizza.isSelected()) {
 			pizzaTotal = 10;
-		} else if (rdbtnLargePizza.isSelected()){
+		} else if (rdbtnLargePizza.isSelected()) {
 			pizzaTotal = 12;
-		} else if (rdbtnXLargePizza.isSelected()){
+		} else if (rdbtnXLargePizza.isSelected()) {
 			pizzaTotal = 14;
 		} else {
 			/*
-			 * Lets make the selection for the user if they don't pick a pizza size first, after all you can't pick toppings 
-			 * without a pizza size. Will also make the selection on mousing over the checkboxes.
+			 * Lets make the selection for the user if they don't pick a pizza
+			 * size first, after all you can't pick toppings without a pizza
+			 * size. Will also make the selection on mousing over the
+			 * checkboxes.
 			 */
 			rdbtnMediumPizza.setSelected(true);
 			pizzaTotal = 10;
 		}
 		/*
-		 * for each loop to get get all that are checked, much easier and more efficient than keeping track of each check box
+		 * for each loop to get get all that are checked, much easier and more
+		 * efficient than keeping track of each check box
 		 */
 		for (int i = 0; i < PizzaToppings.getComponentCount(); i++) {
 			JCheckBox checkBox = (JCheckBox) PizzaToppings.getComponent(i);
@@ -315,7 +325,8 @@ public class PizzaOrder extends JFrame {
 		taxes = pizzaTotal * .06;
 		finalTotal = taxes + pizzaTotal;
 		/*
-		 * update labels for correct amounts, with a formatter to convert the value to a $$ or whatever your local currency is.
+		 * update labels for correct amounts, with a formatter to convert the
+		 * value to a $$ or whatever your local currency is.
 		 */
 		NumberFormat formatter = NumberFormat.getCurrencyInstance();
 		lblPizzaTotal.setText(formatter.format(pizzaTotal));
