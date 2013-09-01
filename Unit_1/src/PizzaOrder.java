@@ -1,5 +1,4 @@
 import java.awt.EventQueue;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.text.NumberFormat;
 
@@ -17,10 +16,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.ImageIcon;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import net.miginfocom.swing.MigLayout;
+import java.awt.FlowLayout;
 
 public class PizzaOrder extends JFrame {
 
@@ -246,11 +242,18 @@ public class PizzaOrder extends JFrame {
 				.createTitledBorder("Perfecto Specials"));
 		InfoPanel.setBounds(12, 123, 207, 126);
 		contentPane.add(InfoPanel);
-								InfoPanel.setLayout(new GridLayout(0, 1, 0, 0));
-						
-								JLabel lblBuyMedium = new JLabel(
-										"Buy 2 Medium 3 topping pizza's for only $20!");
-								InfoPanel.add(lblBuyMedium);
+		InfoPanel.setLayout(null);
+		
+		JLabel lblPicture = new JLabel("");
+		lblPicture.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPicture.setBounds(5, 17, 320, 117);
+		lblPicture.setIcon(new ImageIcon("/home/adefran/workspace/Unit_1/src/pizza-hut.jpg"));
+		InfoPanel.add(lblPicture);
+
+		JLabel lblBuyMedium = new JLabel(
+				"Buy 2 Medium 3 topping pizza's for only $20!");
+		lblBuyMedium.setBounds(5, 146, 320, 31);
+		InfoPanel.add(lblBuyMedium);
 
 		/*
 		 * Summary Panel which holds the totals for the pizza, taxes and then
