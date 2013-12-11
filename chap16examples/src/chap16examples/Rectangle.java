@@ -24,4 +24,18 @@ public class Rectangle implements Comparable<Rectangle> {
 			return 0;
 		}
 	}
+	
+	public double perimeter(){
+		return (this.length * 2) + (this.width*2);
+	}
+	
+	public int compareToPerim(Comparable<Rectangle> minValue) {
+		if(perimeter() > ((Rectangle) minValue).perimeter()) {
+			return 1;
+		} else if(perimeter() > ((Rectangle) minValue).perimeter()) {
+			return -1;
+		} else {
+			return 0;
+		}
+	}
 }
