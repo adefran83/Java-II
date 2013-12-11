@@ -21,6 +21,7 @@ public class Assignment3 {
 		 * output the results
 		 */
 		System.out.println("The string " + string + " reverses to " + reverse(string));
+		keyboard.close();
 	}
 	
 	public static String reverse(String x){
