@@ -26,13 +26,15 @@ public class Rectangle implements Comparable<Rectangle> {
 	}
 	
 	public double perimeter(){
-		return (this.length * 2) + (this.width*2);
+		double sideA = this.length*2;
+		double sideB = this.width*2;
+		return sideA + sideB;
 	}
 	
 	public int compareToPerim(Comparable<Rectangle> minValue) {
 		if(perimeter() > ((Rectangle) minValue).perimeter()) {
 			return 1;
-		} else if(perimeter() > ((Rectangle) minValue).perimeter()) {
+		} else if(perimeter() < ((Rectangle) minValue).perimeter()) {
 			return -1;
 		} else {
 			return 0;
