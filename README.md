@@ -1,4 +1,4 @@
 Java-II
 =======
 
-Repository for my Java II class
+storage for my Java II class
